@@ -18,6 +18,7 @@
                 window.addEventListener("load", resetScroll);
             }
 
+            
             createVisual();
             createQuiz();
             createStep();
