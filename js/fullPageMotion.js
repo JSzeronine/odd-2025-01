@@ -685,7 +685,7 @@
         }
 
         function exitQuiz() {
-            _quiz.addClass("on");
+            _quiz.removeClass("on");
 
             gsap.fromTo(_quiz,
                 { opacity: 1, y: 0 },
