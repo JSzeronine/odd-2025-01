@@ -18,13 +18,13 @@
                 window.addEventListener("load", resetScroll);
             }
 
-            
+
             createVisual();
             createQuiz();
             createStep();
             createStepContentScroll();
 
-            // createScroll();
+            createScroll();
         }
 
         function createStep() {
@@ -56,7 +56,7 @@
             });
         }
 
-        let sceneIndex = 0;
+        let sceneIndex = 10;
         let sceneType = "";
 
         let iC = false;
@@ -269,7 +269,9 @@
 
             const closePopup = () => {
                 popup.removeClass("on");
-                console.log("Click Handler");
+                $(".quiz-result-icon").addClass("on");
+                $( ".quiz-icon-bx" ).css( "opacity", 0 );
+
             }
 
             popupCloseBtn.on("click", closePopup);
@@ -293,7 +295,6 @@
 
                 quizItem.removeClass("on");
                 quizItem.off("touchstart");
-                $("body").off("touchend");
 
                 gsap.killTweensOf(popupContents);
                 popupContents.removeClass("on");
@@ -307,8 +308,6 @@
                 gsap.fromTo(popupCloseBtn,
                     { y: -10, opacity: 0 },
                     { y: 0, opacity: 1, duration: 0.35, ease: Cubic.easeInOut });
-
-                $(".quiz-result-icon").addClass("on");
 
                 quizBtn.attr("disabled", true);
             });
@@ -355,7 +354,7 @@
 
                             setTimeout(() => {
                                 $("body").removeClass("hidden");
-                                createScroll();
+                                // createScroll();
                             }, 2000);
                         }
                     }
@@ -417,8 +416,6 @@
                 setTimeout(() => {
                     showHidden();
                 }, 550);
-
-
             }
         }
 
