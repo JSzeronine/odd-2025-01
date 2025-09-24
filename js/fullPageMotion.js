@@ -48,7 +48,7 @@
             gsap.killTweensOf(_skyCould);
 
             gsap.to(_skyBg, { duration: 1.5, y: _bgY[idx], ease: Cubic.easeInOut });
-            gsap.to(_skyCould, { duration: 2, y: _bgY[idx], ease: Cubic.easeInOut });
+            gsap.to(_skyCould, { duration: 2.25, y: _bgY[idx], ease: Cubic.easeInOut });
         }
 
         function inVisual() {
