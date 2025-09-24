@@ -149,7 +149,7 @@
 
         }
 
-        function showProgress(idx, characterIdx, isIn) {
+        function showProgress(idx, characterIdx, isIn, isBack = false ) {
             const progressBx = $(".tutorial-progress-bx");
             const characterBx = progressBx.find(".circle-character-bx");
             const circleBx = progressBx.find(".circle-line-bx").find(".circle-line");
@@ -159,25 +159,51 @@
 
             const w = `${25 * idx}%`;
 
-            gsap.to(characterBx, { width: w, duration: 1.5, ease: Cubic.easeInOut });
-            gsap.to(circleBx, {
-                width: w, duration: 1.5, ease: Cubic.easeInOut, onComplete: () => {
-                    if (isIn) {
-                        console.log(characterIdx);
+            if( isBack ){
+                character.removeClass("on");
+                $(character[characterIdx]).addClass("on");
 
-                        character.removeClass("on");
-                        $(character[characterIdx]).addClass("on");
+                if( !isIn ){
+                    checkBx.removeClass("on");
+                    $(checkBx[characterIdx]).addClass("on");
+                }
 
+                checkBxText.removeClass("bold");
+
+                for( let i = characterIdx; i < character.length; i++ ){
+                    $( checkBxText[i] ).removeClass("on");
+                }
+
+                $(checkBxText[characterIdx]).addClass("bold");
+                $(checkBxText[characterIdx]).addClass("on");
+
+                console.log( "Back", characterIdx );
+            }else{
+                setTimeout(() => {
+                    character.removeClass("on");
+                    $(character[characterIdx]).addClass("on");
+
+                    if( isIn ){
                         checkBx.removeClass("on");
                         $(checkBx[idx]).addClass("on");
                     }
 
+                    checkBxText.removeClass("bold");
                     $(checkBxText[idx]).addClass("bold");
                     $(checkBxText[idx]).addClass("on");
+
+                }, 950 );
+            }
+
+            gsap.to(characterBx, { width: w, duration: 0.95, ease: Cubic.easeInOut });
+
+            gsap.to(circleBx, {
+                width: w, duration: 0.95, ease: Cubic.easeInOut, onComplete: () => {
+                    if (isIn) {
+                    }
+
                 }
             });
-
-            checkBxText.removeClass("bold");
         }
 
         function inStep0() {

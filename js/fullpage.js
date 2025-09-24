@@ -201,46 +201,46 @@
 
                     case 2:
                         App.fullPageMotion.exitStep0Swiper();
-                        App.fullPageMotion.showProgress(0, 0, true);
+                        App.fullPageMotion.showProgress(0, 0, true, true);
                         break;
                     case 3:
                         App.fullPageMotion.exitStep1();
                         App.fullPageMotion.inStep0();
                         App.fullPageMotion.inStep0Swiper();
-                        App.fullPageMotion.showProgress(0.5, 0, false);
+                        App.fullPageMotion.showProgress(0.5, 0, false, true);
                         break;
 
                     case 4:
                         App.fullPageMotion.exitStep1Swiper();
-                        App.fullPageMotion.showProgress(1, 0, true);
+                        App.fullPageMotion.showProgress(1, 1, true, true);
                         break;
                     case 5:
                         App.fullPageMotion.exitStep2();
                         App.fullPageMotion.inStep1();
                         App.fullPageMotion.inStep1Swiper();
-                        App.fullPageMotion.showProgress(1.5, 1, false);
+                        App.fullPageMotion.showProgress(1.5, 1, false, true);
                         break;
 
                     case 6:
                         App.fullPageMotion.exitStep2Swiper();
-                        App.fullPageMotion.showProgress(2, 1, true);
+                        App.fullPageMotion.showProgress(2, 2, true, true);
                         break;
                     case 7:
                         App.fullPageMotion.exitStep3();
                         App.fullPageMotion.inStep2();
                         App.fullPageMotion.inStep2Swiper();
-                        App.fullPageMotion.showProgress(2.5, 2, false);
+                        App.fullPageMotion.showProgress(2.5, 2, false, true);
                         break;
 
                     case 8:
                         App.fullPageMotion.exitStep3Swiper();
-                        App.fullPageMotion.showProgress(3, 2, true);
+                        App.fullPageMotion.showProgress(3, 3, true, true);
                         break;
                     case 9:
                         App.fullPageMotion.exitStep4();
                         App.fullPageMotion.inStep3();
                         App.fullPageMotion.inStep3Swiper();
-                        App.fullPageMotion.showProgress(3.5, 3, false);
+                        App.fullPageMotion.showProgress(3.5, 3, false, true);
                         break;
 
                     case 10:
