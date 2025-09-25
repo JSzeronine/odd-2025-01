@@ -272,7 +272,7 @@
                 popup.removeClass("on");
                 $(".quiz-result-icon").addClass("on");
                 $( ".quiz-icon-bx" ).css( "opacity", 0 );
-
+                $( ".quiz-item-dimmed" ).css( "opacity", 0 );
             }
 
             popupCloseBtn.on("click", closePopup);
