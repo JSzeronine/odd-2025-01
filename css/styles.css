@@ -878,7 +878,7 @@ body {
 .popup .popup-content-bx {
   position: relative;
   width: 100%;
-  height: calc(100vh + 1px);
+  height: calc(100dvh + 1px);
   display: flex;
   justify-content: center;
   align-items: center;
