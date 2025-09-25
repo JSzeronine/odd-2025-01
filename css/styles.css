@@ -926,12 +926,19 @@ body {
   line-height: 24px;
   color: #002800;
   margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.popup .popup-content-bx .popup-inner .popup-content-list .popup-content dl dt img {
+  width: 28px;
 }
 .popup .popup-content-bx .popup-inner .popup-content-list .popup-content dl dd {
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
   color: #002800;
+  letter-spacing: -3%;
 }
 .popup .popup-content-bx .popup-inner .popup-content-list .popup-close-btn {
   text-align: center;
@@ -3542,7 +3549,7 @@ body.hidden {
   opacity: 1;
 }
 .fullpage .quiz .quiz-bx .quiz-item-list .quiz-item input:checked + label .quiz-item-dimmed {
-  opacity: 0.1;
+  opacity: 0.15;
 }
 .fullpage .quiz .quiz-bx .quiz-item-list .quiz-item label {
   font-size: 0;
@@ -3595,7 +3602,6 @@ body.hidden {
   height: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
   opacity: 0;
   transform: translate3d(0, 0, 0);
 }
@@ -3603,11 +3609,14 @@ body.hidden {
   opacity: 1;
 }
 .fullpage .quiz .quiz-bx .quiz-item-list .quiz-item label .quiz-result-icon img {
-  width: 40px;
+  position: relative;
+  top: 38px;
+  width: 64px;
+  height: 64px;
 }
 .fullpage .quiz .quiz-bx .quiz-item-list .quiz-item label .quiz-item-dimmed {
   position: absolute;
-  background-color: #281F12;
+  background-color: #F97D01;
   left: 0;
   top: 0;
   width: 100%;

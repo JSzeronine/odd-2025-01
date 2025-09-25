@@ -24,7 +24,7 @@
             createStep();
             createStepContentScroll();
 
-            // createScroll();
+            createScroll();
         }
 
         function createStep() {
@@ -57,7 +57,7 @@
         }
 
         
-        let sceneIndex = 0;
+        let sceneIndex = 10;
         let sceneType = "";
 
         let iC = false;

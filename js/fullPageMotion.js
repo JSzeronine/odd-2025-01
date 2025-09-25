@@ -47,34 +47,32 @@
             gsap.killTweensOf(_skyBg);
             gsap.killTweensOf(_skyCould);
 
-            gsap.to(_skyBg, { duration: 1.5, y: _bgY[idx], ease: Cubic.easeInOut });
-            gsap.to(_skyCould, { duration: 2.25, y: _bgY[idx], ease: Cubic.easeInOut });
+            gsap.to(_skyBg, { duration: 1, y: _bgY[idx], ease: Cubic.easeInOut });
+            gsap.to(_skyCould, { duration: 1.25, y: _bgY[idx], ease: Cubic.easeInOut });
         }
 
+        const motionTime = 0.75;
+        const delayTime = 0.25;
         function inVisual() {
-            const delayTime = 0;
-
             _visual.css("display", "flex");
 
-            gsap.to(visual, { opacity: 1, duration: 1, ease: Cubic.easeInOut, delay: delayTime });
-            gsap.to(visualVideo, { duration: 1, scale: 1, ease: Cubic.easeInOut, delay: delayTime });
-            gsap.to(visualIntroduce, { duration: 1, scale: 1, ease: Cubic.easeInOut, delay: delayTime });
+            gsap.to(visual, { opacity: 1, duration: motionTime, ease: Cubic.easeInOut, delay: delayTime - 0.5});
+            gsap.to(visualVideo, { duration: motionTime, scale: 1, ease: Cubic.easeInOut, delay: delayTime - 0.5 });
+            gsap.to(visualIntroduce, { duration: motionTime, scale: 1, ease: Cubic.easeInOut, delay: delayTime - 0.5 });
         }
 
         function exitVisual() {
 
-            gsap.to(visual, { alpha: 0, duration: 1, ease: Cubic.easeInOut });
-            gsap.to(visualVideo, { duration: 1, scale: 0.95, ease: Cubic.easeInOut });
+            gsap.to(visual, { alpha: 0, duration: motionTime, ease: Cubic.easeInOut });
+            gsap.to(visualVideo, { duration: motionTime, scale: 0.95, ease: Cubic.easeInOut });
             gsap.to(visualIntroduce, {
-                duration: 1, scale: 1.2, ease: Cubic.easeInOut, onComplete: () => {
+                duration: motionTime, scale: 1.2, ease: Cubic.easeInOut, onComplete: () => {
                     _visual.css("display", "none");
                 }
             });
         }
 
         function inSecret() {
-            const delayTime = 0.5;
-
             _secret.addClass("on");
 
             const title = _secret.find(".secret-title");
@@ -86,22 +84,22 @@
 
             gsap.fromTo(titleDt,
                 { opacity: 0, x: -20 },
-                { opacity: 1, x: 0, duration: 1, ease: Cubic.easeInOut, delay: delayTime }
+                { opacity: 1, x: 0, duration: motionTime, ease: Cubic.easeInOut, delay: delayTime }
             );
 
             gsap.fromTo(titleDd,
                 { opacity: 0, x: 20 },
-                { opacity: 1, x: 0, duration: 1, ease: Cubic.easeInOut, delay: delayTime }
+                { opacity: 1, x: 0, duration: motionTime, ease: Cubic.easeInOut, delay: delayTime }
             )
 
             gsap.fromTo(chicken,
                 { opacity: 0, y: 50 },
-                { opacity: 1, y: 0, duration: 1, ease: Cubic.easeInOut, delay: delayTime }
+                { opacity: 1, y: 0, duration: motionTime, ease: Cubic.easeInOut, delay: delayTime }
             )
 
             gsap.fromTo(bgItem,
                 { opacity: 0, y: 20 },
-                { opacity: 1, y: 0, duration: 1, ease: Cubic.easeInOut, delay: delayTime }
+                { opacity: 1, y: 0, duration: motionTime, ease: Cubic.easeInOut, delay: delayTime }
             )
         }
 
@@ -117,35 +115,35 @@
 
             gsap.fromTo(titleDt,
                 { opacity: 1, x: 0 },
-                { opacity: 0, x: -20, duration: 1, ease: Cubic.easeInOut }
+                { opacity: 0, x: -20, duration: motionTime, ease: Cubic.easeInOut }
             );
 
             gsap.fromTo(titleDd,
                 { opacity: 1, x: 0 },
-                { opacity: 0, x: 20, duration: 1, ease: Cubic.easeInOut }
+                { opacity: 0, x: 20, duration: motionTime, ease: Cubic.easeInOut }
             )
 
             gsap.fromTo(chicken,
                 { opacity: 1, x: 0 },
-                { opacity: 0, y: 20, duration: 1, ease: Cubic.easeInOut }
+                { opacity: 0, y: 20, duration: motionTime, ease: Cubic.easeInOut }
             )
 
             gsap.fromTo(bgItem,
                 { opacity: 1, x: 0 },
-                { opacity: 0, y: 20, duration: 1, ease: Cubic.easeInOut }
+                { opacity: 0, y: 20, duration: motionTime, ease: Cubic.easeInOut }
             )
         }
 
         function inProgress() {
             gsap.fromTo($(".tutorial-progress-bx"),
                 { y: -40, opacity: 0 },
-                { y: 0, opacity: 1, duration: 1, ease: Cubic.easeInOut, delay: 0.5, });
+                { y: 0, opacity: 1, duration: motionTime, ease: Cubic.easeInOut, delay: 0.5, });
         }
 
         function exitProgress() {
             gsap.fromTo($(".tutorial-progress-bx"),
                 { y: 0, opacity: 1 },
-                { y: -40, opacity: 0, duration: 1.5, ease: Cubic.easeOut });
+                { y: -40, opacity: 0, duration: motionTime, ease: Cubic.easeOut });
 
         }
 
@@ -207,7 +205,6 @@
         }
 
         function inStep0() {
-            const delayTime = 0.5;
             $(_stepList[0]).addClass("on");
 
             const stepTitle = $(_stepList[0]).find(".tutorial-step-bx");
@@ -221,12 +218,12 @@
 
             gsap.fromTo(stepTitleDt,
                 { opacity: 0, y: -20 },
-                { opacity: 1, y: 0, duration: 1, ease: Cubic.easeInOut, delay: delayTime }
+                { opacity: 1, y: 0, duration: motionTime, ease: Cubic.easeInOut, delay: delayTime }
             )
 
             gsap.fromTo(stepTitleDd,
                 { opacity: 0, y: -20 },
-                { opacity: 1, y: 0, duration: 1, ease: Cubic.easeInOut, delay: delayTime }
+                { opacity: 1, y: 0, duration: motionTime, ease: Cubic.easeInOut, delay: delayTime }
             )
 
             const inPostion = {
@@ -237,7 +234,7 @@
             animationItems.each(function (i, el) {
                 gsap.fromTo(el,
                     { opacity: 0, x: inPostion.x[i], y: inPostion.y[i] },
-                    { opacity: 1, x: 0, y: 0, duration: 1, ease: Cubic.easeInOut, delay: delayTime }
+                    { opacity: 1, x: 0, y: 0, duration: motionTime, ease: Cubic.easeInOut, delay: delayTime }
                 )
             })
         }
@@ -252,7 +249,7 @@
 
             gsap.fromTo(swiper,
                 { opacity: 0, y: 50 },
-                { opacity: 1, y: 0, duration: 1, ease: Cubic.easeInOut });
+                { opacity: 1, y: 0, duration: motionTime, ease: Cubic.easeInOut });
         }
 
         function exitStep0() {
@@ -264,12 +261,12 @@
 
             gsap.fromTo(stepTitleDt,
                 { opacity: 1, y: 0 },
-                { opacity: 0, y: -20, duration: 1, ease: Cubic.easeOut }
+                { opacity: 0, y: -20, duration: motionTime, ease: Cubic.easeOut }
             )
 
             gsap.fromTo(stepTitleDd,
                 { opacity: 1, y: 0 },
-                { opacity: 0, y: -20, duration: 1, ease: Cubic.easeOut }
+                { opacity: 0, y: -20, duration: motionTime, ease: Cubic.easeOut }
             )
 
             const animationItems = $(_stepList[0]).find(".tutorial-animation--items--00").find("img");
@@ -281,7 +278,7 @@
             animationItems.each(function (i, el) {
                 gsap.fromTo(el,
                     { opacity: 1, x: 0, y: 0 },
-                    { opacity: 0, x: inPostion.x[i], y: inPostion.y[i], duration: 1, ease: Cubic.easeOut }
+                    { opacity: 0, x: inPostion.x[i], y: inPostion.y[i], duration: motionTime, ease: Cubic.easeOut }
                 )
             })
         }
@@ -294,7 +291,7 @@
             gsap.fromTo(swiper,
                 { opacity: 1, y: 0 },
                 {
-                    opacity: 0, y: 0, duration: 1, ease: Cubic.easeInOut, onComplete: () => {
+                    opacity: 0, y: 0, duration: motionTime, ease: Cubic.easeInOut, onComplete: () => {
                         swiper.css("visibility", "hidden");
                         swiper.css("pointer-events", "none");
                     }
@@ -302,7 +299,6 @@
         }
 
         function inStep1() {
-            const delayTime = 0.5;
             $(_stepList[1]).addClass("on");
 
             const stepTitle = $(_stepList[1]).find(".tutorial-step-bx");
@@ -316,12 +312,12 @@
 
             gsap.fromTo(stepTitleDt,
                 { opacity: 0, y: -20 },
-                { opacity: 1, y: 0, duration: 1, ease: Cubic.easeInOut, delay: delayTime }
+                { opacity: 1, y: 0, duration: motionTime, ease: Cubic.easeInOut, delay: delayTime }
             )
 
             gsap.fromTo(stepTitleDd,
                 { opacity: 0, y: -20 },
-                { opacity: 1, y: 0, duration: 1, ease: Cubic.easeInOut, delay: delayTime }
+                { opacity: 1, y: 0, duration: motionTime, ease: Cubic.easeInOut, delay: delayTime }
             )
 
             const inPostion = {
@@ -332,7 +328,7 @@
             animationItems.each(function (i, el) {
                 gsap.fromTo(el,
                     { opacity: 0, x: inPostion.x[i], y: inPostion.y[i] },
-                    { opacity: 1, x: 0, y: 0, duration: 1, ease: Cubic.easeInOut, delay: delayTime }
+                    { opacity: 1, x: 0, y: 0, duration: motionTime, ease: Cubic.easeInOut, delay: delayTime }
                 )
             })
         }
@@ -347,7 +343,7 @@
 
             gsap.fromTo(swiper,
                 { opacity: 0, y: 50 },
-                { opacity: 1, y: 0, duration: 1, ease: Cubic.easeInOut });
+                { opacity: 1, y: 0, duration: motionTime, ease: Cubic.easeInOut });
         }
 
         function exitStep1() {
@@ -359,12 +355,12 @@
 
             gsap.fromTo(stepTitleDt,
                 { opacity: 1, y: 0 },
-                { opacity: 0, y: -20, duration: 1, ease: Cubic.easeOut }
+                { opacity: 0, y: -20, duration: motionTime, ease: Cubic.easeOut }
             )
 
             gsap.fromTo(stepTitleDd,
                 { opacity: 1, y: 0 },
-                { opacity: 0, y: -20, duration: 1, ease: Cubic.easeOut }
+                { opacity: 0, y: -20, duration: motionTime, ease: Cubic.easeOut }
             )
 
             const animationItems = $(_stepList[1]).find(".tutorial-animation--items--01").find("img");
@@ -376,7 +372,7 @@
             animationItems.each(function (i, el) {
                 gsap.fromTo(el,
                     { opacity: 1, x: 0, y: 0 },
-                    { opacity: 0, x: inPostion.x[i], y: inPostion.y[i], duration: 1, ease: Cubic.easeOut }
+                    { opacity: 0, x: inPostion.x[i], y: inPostion.y[i], duration: motionTime, ease: Cubic.easeOut }
                 )
             })
         }
@@ -389,7 +385,7 @@
             gsap.fromTo(swiper,
                 { opacity: 1, y: 0 },
                 {
-                    opacity: 0, y: 0, duration: 1, ease: Cubic.easeInOut, onComplete: () => {
+                    opacity: 0, y: 0, duration: motionTime, ease: Cubic.easeInOut, onComplete: () => {
                         swiper.css("visibility", "hidden");
                         swiper.css("pointer-events", "none");
                     }
@@ -397,7 +393,6 @@
         }
 
         function inStep2() {
-            const delayTime = 0.5;
             $(_stepList[2]).addClass("on");
 
             const stepTitle = $(_stepList[2]).find(".tutorial-step-bx");
@@ -411,12 +406,12 @@
 
             gsap.fromTo(stepTitleDt,
                 { opacity: 0, y: -20 },
-                { opacity: 1, y: 0, duration: 1, ease: Cubic.easeInOut, delay: delayTime }
+                { opacity: 1, y: 0, duration: motionTime, ease: Cubic.easeInOut, delay: delayTime }
             )
 
             gsap.fromTo(stepTitleDd,
                 { opacity: 0, y: -20 },
-                { opacity: 1, y: 0, duration: 1, ease: Cubic.easeInOut, delay: delayTime }
+                { opacity: 1, y: 0, duration: motionTime, ease: Cubic.easeInOut, delay: delayTime }
             )
 
             const inPostion = {
@@ -427,7 +422,7 @@
             animationItems.each(function (i, el) {
                 gsap.fromTo(el,
                     { opacity: 0, x: inPostion.x[i], y: inPostion.y[i] },
-                    { opacity: 1, x: 0, y: 0, duration: 1, ease: Cubic.easeInOut, delay: delayTime }
+                    { opacity: 1, x: 0, y: 0, duration: motionTime, ease: Cubic.easeInOut, delay: delayTime }
                 )
             })
         }
@@ -442,7 +437,7 @@
 
             gsap.fromTo(swiper,
                 { opacity: 0, y: 50 },
-                { opacity: 1, y: 0, duration: 1, ease: Cubic.easeInOut });
+                { opacity: 1, y: 0, duration: motionTime, ease: Cubic.easeInOut });
         }
 
         function exitStep2() {
@@ -454,12 +449,12 @@
 
             gsap.fromTo(stepTitleDt,
                 { opacity: 1, y: 0 },
-                { opacity: 0, y: -20, duration: 1, ease: Cubic.easeOut }
+                { opacity: 0, y: -20, duration: motionTime, ease: Cubic.easeOut }
             )
 
             gsap.fromTo(stepTitleDd,
                 { opacity: 1, y: 0 },
-                { opacity: 0, y: -20, duration: 1, ease: Cubic.easeOut }
+                { opacity: 0, y: -20, duration: motionTime, ease: Cubic.easeOut }
             )
 
             const animationItems = $(_stepList[2]).find(".tutorial-animation--items--02").find("img");
@@ -471,7 +466,7 @@
             animationItems.each(function (i, el) {
                 gsap.fromTo(el,
                     { opacity: 1, x: 0, y: 0 },
-                    { opacity: 0, x: inPostion.x[i], y: inPostion.y[i], duration: 1, ease: Cubic.easeOut }
+                    { opacity: 0, x: inPostion.x[i], y: inPostion.y[i], duration: motionTime, ease: Cubic.easeOut }
                 )
             })
         }
@@ -484,7 +479,7 @@
             gsap.fromTo(swiper,
                 { opacity: 1, y: 0 },
                 {
-                    opacity: 0, y: 0, duration: 1, ease: Cubic.easeInOut, onComplete: () => {
+                    opacity: 0, y: 0, duration: motionTime, ease: Cubic.easeInOut, onComplete: () => {
                         swiper.css("visibility", "hidden");
                         swiper.css("pointer-events", "none");
                     }
@@ -492,7 +487,6 @@
         }
 
         function inStep3() {
-            const delayTime = 0.5;
             $(_stepList[3]).addClass("on");
 
             const stepTitle = $(_stepList[3]).find(".tutorial-step-bx");
@@ -506,12 +500,12 @@
 
             gsap.fromTo(stepTitleDt,
                 { opacity: 0, y: -20 },
-                { opacity: 1, y: 0, duration: 1, ease: Cubic.easeInOut, delay: delayTime }
+                { opacity: 1, y: 0, duration: motionTime, ease: Cubic.easeInOut, delay: delayTime }
             )
 
             gsap.fromTo(stepTitleDd,
                 { opacity: 0, y: -20 },
-                { opacity: 1, y: 0, duration: 1, ease: Cubic.easeInOut, delay: delayTime }
+                { opacity: 1, y: 0, duration: motionTime, ease: Cubic.easeInOut, delay: delayTime }
             )
 
             const inPostion = {
@@ -526,7 +520,7 @@
 
                 gsap.fromTo(el,
                     { opacity: 0, x: inPostion.x[i], y: inPostion.y[i] },
-                    { opacity: 1, x: 0, y: 0, duration: 1, ease: Cubic.easeInOut, delay: delayTime }
+                    { opacity: 1, x: 0, y: 0, duration: motionTime, ease: Cubic.easeInOut, delay: delayTime }
                 )
             });
 
@@ -546,7 +540,7 @@
 
             gsap.fromTo(swiper,
                 { opacity: 0, y: 50 },
-                { opacity: 1, y: 0, duration: 1, ease: Cubic.easeInOut });
+                { opacity: 1, y: 0, duration: motionTime, ease: Cubic.easeInOut });
         }
 
         function exitStep3() {
@@ -558,12 +552,12 @@
 
             gsap.fromTo(stepTitleDt,
                 { opacity: 1, y: 0 },
-                { opacity: 0, y: -20, duration: 1, ease: Cubic.easeOut }
+                { opacity: 0, y: -20, duration: motionTime, ease: Cubic.easeOut }
             )
 
             gsap.fromTo(stepTitleDd,
                 { opacity: 1, y: 0 },
-                { opacity: 0, y: -20, duration: 1, ease: Cubic.easeOut }
+                { opacity: 0, y: -20, duration: motionTime, ease: Cubic.easeOut }
             )
 
             const animationItems = $(_stepList[3]).find(".tutorial-animation--items--03").find("img");
@@ -575,7 +569,7 @@
             animationItems.each(function (i, el) {
                 gsap.fromTo(el,
                     { opacity: 1, x: 0, y: 0 },
-                    { opacity: 0, x: inPostion.x[i], y: inPostion.y[i], duration: 1, ease: Cubic.easeOut }
+                    { opacity: 0, x: inPostion.x[i], y: inPostion.y[i], duration: motionTime, ease: Cubic.easeOut }
                 )
             })
         }
@@ -588,7 +582,7 @@
             gsap.fromTo(swiper,
                 { opacity: 1, y: 0 },
                 {
-                    opacity: 0, y: 0, duration: 1, ease: Cubic.easeInOut, onComplete: () => {
+                    opacity: 0, y: 0, duration: motionTime, ease: Cubic.easeInOut, onComplete: () => {
                         swiper.css("visibility", "hidden");
                         swiper.css("pointer-events", "none");
                     }
@@ -596,7 +590,7 @@
         }
 
         function inStep4($delayTime = 0.5) {
-            const delayTime = $delayTime;
+            const mD = $delayTime || delayTime;
             $(_stepList[4]).addClass("on");
 
             const stepTitle = $(_stepList[4]).find(".tutorial-step-bx");
@@ -610,12 +604,12 @@
 
             gsap.fromTo(stepTitleDt,
                 { opacity: 0, y: -20 },
-                { opacity: 1, y: 0, duration: 1, ease: Cubic.easeInOut, delay: delayTime }
+                { opacity: 1, y: 0, duration: motionTime, ease: Cubic.easeInOut, delay: mD }
             )
 
             gsap.fromTo(stepTitleDd,
                 { opacity: 0, y: -20 },
-                { opacity: 1, y: 0, duration: 1, ease: Cubic.easeInOut, delay: delayTime }
+                { opacity: 1, y: 0, duration: motionTime, ease: Cubic.easeInOut, delay: mD }
             )
 
             const inPostion = {
@@ -630,13 +624,13 @@
 
                 gsap.fromTo(el,
                     { opacity: 0, x: inPostion.x[i], y: inPostion.y[i] },
-                    { opacity: 1, x: 0, y: 0, duration: 1, ease: Cubic.easeInOut, delay: delayTime }
+                    { opacity: 1, x: 0, y: 0, duration: motionTime, ease: Cubic.easeInOut, delay: mD }
                 )
             });
 
             gsap.fromTo(animationItems[2],
                 { opacity: 0, x: 100 },
-                { opacity: 1, x: 0, duration: 0.5, ease: "none", delay: 1.25 }
+                { opacity: 1, x: 0, duration: 0.5, ease: "none", delay: mD + 0.75 }
             )
         }
 
@@ -649,12 +643,12 @@
 
             gsap.fromTo(stepTitleDt,
                 { opacity: 1, y: 0 },
-                { opacity: 0, y: -20, duration: 1, ease: Cubic.easeOut }
+                { opacity: 0, y: -20, duration: motionTime, ease: Cubic.easeOut }
             )
 
             gsap.fromTo(stepTitleDd,
                 { opacity: 1, y: 0 },
-                { opacity: 0, y: -20, duration: 1, ease: Cubic.easeOut }
+                { opacity: 0, y: -20, duration: motionTime, ease: Cubic.easeOut }
             )
 
             const animationItems = $(_stepList[4]).find(".tutorial-animation--items--04").find("img");
@@ -666,7 +660,7 @@
             animationItems.each(function (i, el) {
                 gsap.fromTo(el,
                     { opacity: 1, x: 0, y: 0 },
-                    { opacity: 0, x: inPostion.x[i], y: inPostion.y[i], duration: 1, ease: Cubic.easeOut }
+                    { opacity: 0, x: inPostion.x[i], y: inPostion.y[i], duration: motionTime, ease: Cubic.easeOut }
                 )
             })
         }
@@ -677,14 +671,14 @@
 
             gsap.fromTo(_quiz,
                 { opacity: 0, y: 0 },
-                { opacity: 1, y: 0, duration: 1, ease: Cubic.easeInOut }
+                { opacity: 1, y: 0, duration: motionTime, ease: Cubic.easeInOut }
             )
 
             const titleBx = _quiz.find(".quiz-title");
 
             gsap.fromTo(titleBx,
                 { opacity: 0, y: -20 },
-                { opacity: 1, y: 0, duration: 1, ease: Cubic.easeInOut }
+                { opacity: 1, y: 0, duration: motionTime, ease: Cubic.easeInOut }
             )
 
             const itemList = _quiz.find(".quiz-item-list");
@@ -693,20 +687,20 @@
 
             gsap.fromTo( itemImg, 
                 { scale: 1.5},
-                { scale: 1, duration: 1, ease: Cubic.easeInOut }
+                { scale: 1, duration: motionTime, ease: Cubic.easeInOut }
             )
 
 
             const productDescription = _quiz.find(".quiz-product-description");
             gsap.fromTo(productDescription,
                 { opacity: 0, y: 20 },
-                { opacity: 1, y: 0, duration: 1, ease: Cubic.easeInOut }
+                { opacity: 1, y: 0, duration: motionTime, ease: Cubic.easeInOut }
             )
 
             const btn = _quiz.find(".quiz-btn-bx");
             gsap.fromTo(btn,
                 { opacity: 0, y: 20 },
-                { opacity: 1, y: 0, duration: 1, ease: Cubic.easeInOut }
+                { opacity: 1, y: 0, duration: motionTime, ease: Cubic.easeInOut }
             )
         }
 
@@ -715,13 +709,13 @@
 
             gsap.fromTo(_quiz,
                 { opacity: 1, y: 0 },
-                { opacity: 0, y: 0, duration: 1, ease: Cubic.easeInOut }
+                { opacity: 0, y: 0, duration: motionTime, ease: Cubic.easeInOut }
             )
 
             const titleBx = _quiz.find(".quiz-title");
             gsap.fromTo(titleBx,
                 { opacity: 1, y: 0 },
-                { opacity: 0, y: -20, duration: 1, ease: Cubic.easeInOut }
+                { opacity: 0, y: -20, duration: motionTime, ease: Cubic.easeInOut }
             )
 
             const itemList = _quiz.find(".quiz-item-list");
@@ -731,13 +725,13 @@
             const productDescription = _quiz.find(".quiz-product-description");
             gsap.fromTo(productDescription,
                 { opacity: 1, y: 0 },
-                { opacity: 0, y: 20, duration: 1, ease: Cubic.easeInOut }
+                { opacity: 0, y: 20, duration: motionTime, ease: Cubic.easeInOut }
             )
 
             const btn = _quiz.find(".quiz-btn-bx");
             gsap.fromTo(btn,
                 { opacity: 1, y: 0 },
-                { opacity: 0, y: 20, duration: 1, ease: Cubic.easeInOut }
+                { opacity: 0, y: 20, duration: motionTime, ease: Cubic.easeInOut }
             )
         }
 
