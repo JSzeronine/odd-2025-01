@@ -48,7 +48,7 @@
             gsap.killTweensOf(_skyCould);
 
             gsap.to(_skyBg, { duration: 1, y: _bgY[idx], ease: Cubic.easeInOut });
-            gsap.to(_skyCould, { duration: 1.25, y: _bgY[idx], ease: Cubic.easeInOut });
+            gsap.to(_skyCould, { duration: 1.5, y: _bgY[idx], ease: Cubic.easeInOut });
         }
 
         const motionTime = 0.75;
@@ -168,7 +168,7 @@
 
                 checkBxText.removeClass("bold");
 
-                for( let i = characterIdx; i < character.length; i++ ){
+                for( let i = characterIdx; i < checkBxText.length; i++ ){
                     $( checkBxText[i] ).removeClass("on");
                 }
 
@@ -194,14 +194,7 @@
             }
 
             gsap.to(characterBx, { width: w, duration: 0.95, ease: Cubic.easeInOut });
-
-            gsap.to(circleBx, {
-                width: w, duration: 0.95, ease: Cubic.easeInOut, onComplete: () => {
-                    if (isIn) {
-                    }
-
-                }
-            });
+            gsap.to(circleBx, { width: w, duration: 0.95, ease: Cubic.easeInOut });
         }
 
         function inStep0() {
