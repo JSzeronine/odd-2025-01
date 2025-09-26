@@ -56,9 +56,9 @@
         function inVisual() {
             _visual.css("display", "flex");
 
-            gsap.to(visual, { opacity: 1, duration: motionTime, ease: Cubic.easeInOut, delay: delayTime - 0.5});
-            gsap.to(visualVideo, { duration: motionTime, scale: 1, ease: Cubic.easeInOut, delay: delayTime - 0.5 });
-            gsap.to(visualIntroduce, { duration: motionTime, scale: 1, ease: Cubic.easeInOut, delay: delayTime - 0.5 });
+            gsap.to(visual, { opacity: 1, duration: motionTime, ease: Cubic.easeInOut, delay: delayTime + 0.25});
+            gsap.to(visualVideo, { duration: motionTime, scale: 1, ease: Cubic.easeInOut, delay: delayTime + 0.25 });
+            gsap.to(visualIntroduce, { duration: motionTime, scale: 1, ease: Cubic.easeInOut, delay: delayTime + 0.25 });
         }
 
         function exitVisual() {
