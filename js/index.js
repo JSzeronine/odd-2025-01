@@ -623,6 +623,10 @@
             behaviorList.on("click", function () {
                 const idx = $(this).index();
                 popup.addClass("on");
+                gsap.fromTo(popup.find(".popup-inner"),
+                    { opacity: 0, y: 30 },
+                    { opacity: 1, y: 0, duration: 0.75, ease: Cubic.easeInOut })
+
 
                 gsap.killTweensOf(popupContents);
                 popupContents.removeClass("on");
