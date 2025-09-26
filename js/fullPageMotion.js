@@ -48,7 +48,7 @@
             gsap.killTweensOf(_skyCould);
 
             gsap.to(_skyBg, { duration: 1, y: _bgY[idx], ease: Cubic.easeInOut });
-            gsap.to(_skyCould, { duration: 1.5, y: _bgY[idx], ease: Cubic.easeInOut });
+            gsap.to(_skyCould, { duration: 1.75, y: _bgY[idx], ease: Cubic.easeInOut });
         }
 
         const motionTime = 0.75;
@@ -560,6 +560,7 @@
             }
 
             animationItems.each(function (i, el) {
+                gsap.killTweensOf(el);
                 gsap.fromTo(el,
                     { opacity: 1, x: 0, y: 0 },
                     { opacity: 0, x: inPostion.x[i], y: inPostion.y[i], duration: motionTime, ease: Cubic.easeOut }
@@ -617,7 +618,7 @@
 
                 gsap.fromTo(el,
                     { opacity: 0, x: inPostion.x[i], y: inPostion.y[i] },
-                    { opacity: 1, x: 0, y: 0, duration: motionTime, ease: Cubic.easeInOut, delay: mD }
+                    { opacity: 1, x: 0, y: 0, duration: motionTime, ease: Cubic.easeInOut, delay: 0 }
                 )
             });
 
@@ -682,7 +683,6 @@
                 { scale: 1.5},
                 { scale: 1, duration: motionTime, ease: Cubic.easeInOut }
             )
-
 
             const productDescription = _quiz.find(".quiz-product-description");
             gsap.fromTo(productDescription,

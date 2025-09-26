@@ -256,11 +256,6 @@
             const quiz = $(".quiz");
             const quizBtn = quiz.find(".quiz-item-list input");
             const quizItem = quiz.find(".quiz-item");
-            // quizItem.on( "touchstart", function(){
-            //     quizItem.removeClass( "on" );
-            //     $( this ).addClass( "on" );
-            // });
-
             const popup = $(".popup");
             const popupBx = popup.find(".popup-content-list");
             const popupContents = popup.find(".popup-content-list .popup-content");
@@ -280,6 +275,8 @@
             $(".popup-close-btn").on("click", closePopup);
 
             quizBtn.on("change", (e) => {
+                quizBtn.attr("disabled", true);
+                
                 const parents = $(".quiz-item");
                 const parent = $(e.currentTarget).parents(".quiz-item");
                 parents.addClass("dimmed");
@@ -309,8 +306,6 @@
                 gsap.fromTo(popupCloseBtn,
                     { y: -10, opacity: 0 },
                     { y: 0, opacity: 1, duration: 0.35, ease: Cubic.easeInOut });
-
-                quizBtn.attr("disabled", true);
             });
         }
 
