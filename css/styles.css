@@ -267,7 +267,7 @@ body {
 }
 .wrap.why-odd-grocer .introduce .introduce-video-bx video {
   width: 100%;
-  height: calc(100% + 160px);
+  height: 972px;
   object-fit: cover;
   object-position: center;
   opacity: 0.4;
