@@ -1908,4 +1908,20 @@ body.hidden {
   backdrop-filter: blur(40px);
 }
 
+.swiper {
+  padding-bottom: 30px !important;
+}
+
+.swiper-pagination-bullet {
+  width: 30px !important;
+  height: 2px !important;
+  background-color: #ECE5C1 !important;
+  opacity: 0.5;
+  border-radius: 0 !important;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1;
+}
+
 /*# sourceMappingURL=styles.css.map */
