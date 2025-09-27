@@ -252,6 +252,7 @@
             }
         }
 
+        let isFirstClick = false;
         function createQuiz() {
             const quiz = $(".quiz");
             const quizBtn = quiz.find(".quiz-item-list input");
@@ -275,8 +276,6 @@
             $(".popup-close-btn").on("click", closePopup);
 
             quizBtn.on("change", (e) => {
-                quizBtn.attr("disabled", true);
-                
                 const parents = $(".quiz-item");
                 const parent = $(e.currentTarget).parents(".quiz-item");
                 parents.addClass("dimmed");
@@ -289,7 +288,11 @@
                     gsap.fromTo(popup.find(".popup-inner"),
                         { opacity: 0, y: 30 },
                         { opacity: 1, y: 0, duration: 0.75, ease: Cubic.easeInOut })
-                }, 500);
+
+                    isFirstClick = true;
+                }, isFirstClick ? 0 : 500 );
+
+                console.log( isFirstClick );
 
                 quizItem.removeClass("on");
                 quizItem.off("touchstart");
