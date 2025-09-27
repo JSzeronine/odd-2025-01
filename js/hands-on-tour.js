@@ -290,9 +290,9 @@
                         { opacity: 1, y: 0, duration: 0.75, ease: Cubic.easeInOut })
 
                     isFirstClick = true;
-                }, isFirstClick ? 0 : 500 );
 
-                console.log( isFirstClick );
+                    quizBtn.prop("checked", false);
+                }, isFirstClick ? 0 : 500 );
 
                 quizItem.removeClass("on");
                 quizItem.off("touchstart");
