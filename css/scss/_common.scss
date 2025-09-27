@@ -5,10 +5,10 @@
     left: 0;
     top: 0;
     overflow-y: auto;
-    overscroll-behavior: contain;
     -ms-overflow-style: none;
     scrollbar-width: none;
     display: none;
+    overscroll-behavior: none;
 
     &.on {
         display: block;
