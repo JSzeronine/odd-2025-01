@@ -1003,7 +1003,7 @@ body {
                             }
 
                             .quiz-item-dimmed {
-                                opacity: 0.15;
+                                opacity: 1;
                             }
                         }
                     }
@@ -1011,6 +1011,8 @@ body {
                     label {
                         font-size: 0;
                         position: relative;
+                        display: block;
+                        overflow: hidden;
                         display: block;
 
                         >img {
@@ -1083,7 +1085,7 @@ body {
 
                         .quiz-item-dimmed {
                             position: absolute;
-                            background-color: #F97D01;
+                            background-color: #F97D0126;
                             left: 0;
                             top: 0;
                             width: 100%;

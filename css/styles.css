@@ -1776,11 +1776,13 @@ body.hidden {
   opacity: 1;
 }
 .fullpage .quiz .quiz-bx .quiz-item-list .quiz-item input:checked + label .quiz-item-dimmed {
-  opacity: 0.15;
+  opacity: 1;
 }
 .fullpage .quiz .quiz-bx .quiz-item-list .quiz-item label {
   font-size: 0;
   position: relative;
+  display: block;
+  overflow: hidden;
   display: block;
 }
 .fullpage .quiz .quiz-bx .quiz-item-list .quiz-item label > img {
@@ -1843,7 +1845,7 @@ body.hidden {
 }
 .fullpage .quiz .quiz-bx .quiz-item-list .quiz-item label .quiz-item-dimmed {
   position: absolute;
-  background-color: #F97D01;
+  background-color: rgba(249, 125, 1, 0.1490196078);
   left: 0;
   top: 0;
   width: 100%;
