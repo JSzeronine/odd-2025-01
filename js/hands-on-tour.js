@@ -24,7 +24,7 @@
             createStep();
             createStepContentScroll();
 
-            // createScroll();
+            createScroll();
         }
 
         function createStep() {
@@ -57,7 +57,7 @@
         }
 
         
-        let sceneIndex = 0;
+        let sceneIndex = 10;
         let sceneType = "";
 
         let iC = false;
@@ -268,7 +268,6 @@
                 popup.removeClass("on");
                 $(".quiz-result-icon").addClass("on");
                 $( ".quiz-icon-bx" ).css( "opacity", 0 );
-                $( ".quiz-item-dimmed" ).css( "opacity", 0 );
 
                 isScroll = false;
             }
@@ -295,10 +294,9 @@
                     isFirstClick = true;
 
                     quizBtn.prop("checked", false);
-                }, isFirstClick ? 0 : 500 );
+                }, isFirstClick ? 250 : 500 );
 
                 quizItem.removeClass("on");
-                quizItem.off("touchstart");
 
                 gsap.killTweensOf(popupContents);
                 popupContents.removeClass("on");
