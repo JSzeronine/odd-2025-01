@@ -269,6 +269,8 @@
                 $(".quiz-result-icon").addClass("on");
                 $( ".quiz-icon-bx" ).css( "opacity", 0 );
                 $( ".quiz-item-dimmed" ).css( "opacity", 0 );
+
+                isScroll = false;
             }
 
             popupCloseBtn.on("click", closePopup);
@@ -276,6 +278,7 @@
             $(".popup-close-btn").on("click", closePopup);
 
             quizBtn.on("change", (e) => {
+                isScroll = true;
                 const parents = $(".quiz-item");
                 const parent = $(e.currentTarget).parents(".quiz-item");
                 parents.addClass("dimmed");
@@ -382,8 +385,6 @@
             });
 
             function showVisual() {
-
-                
                 function showHidden() {
                     gsap.to(visualLogo, { opacity: 0, y: -20, duration: 0.6, ease: Cubic.easeInOut });
                     gsap.to(visualLogoText, { opacity: 0, y: 20, duration: 0.6, ease: Cubic.easeInOut });
